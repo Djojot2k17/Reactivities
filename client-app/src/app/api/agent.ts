@@ -8,7 +8,7 @@ const sleep = (delay: number) => {
 };
 
 // axios.defaults.baseURL = "http://localhost:5000/api";
-axios.defaults.baseURL = "http://reactivities-api.herokuapp.com/api";
+axios.defaults.baseURL = "https://www.reactivities-api.herokuapp.com/api";
 
 axios.interceptors.response.use(async (response) => {
   try {
