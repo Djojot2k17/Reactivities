@@ -7,7 +7,8 @@ const sleep = (delay: number) => {
   });
 };
 
-axios.defaults.baseURL = "http://localhost:5000/api";
+// axios.defaults.baseURL = "http://localhost:5000/api";
+axios.defaults.baseURL = "http://reactivities-api.herokuapp.com/api";
 
 axios.interceptors.response.use(async (response) => {
   try {
@@ -45,9 +46,10 @@ const requests = {
 const Activities = {
   list: () => requests.get<Activity[]>("/activities"),
   details: (id: string) => requests.get<Activity>(`/activities/${id}`),
-  create: (activity: Activity) => requests.post('/activities', activity),
-  update: (activity: Activity) => requests.put(`/activities/${activity.id}`, activity),
-  delete: (id: string) => requests.del<void>(`/activities/${id}`)
+  create: (activity: Activity) => requests.post("/activities", activity),
+  update: (activity: Activity) =>
+    requests.put(`/activities/${activity.id}`, activity),
+  delete: (id: string) => requests.del<void>(`/activities/${id}`),
 };
 
 const agent = {
